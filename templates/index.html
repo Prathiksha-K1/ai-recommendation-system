@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Recommendation System</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f7fb;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .box {
+            background: white;
+            padding: 30px;
+            width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 0 12px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        select, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 15px;
+        }
+        ul {
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h2>AI Recommendation System</h2>
+
+    <form method="POST">
+        <select name="interest" required>
+            <option value="">Select your interest</option>
+            <option value="ai">AI</option>
+            <option value="music">Music</option>
+            <option value="health">Health</option>
+            <option value="finance">Finance</option>
+            <option value="education">Education</option>
+        </select>
+        <button type="submit">Get Recommendations</button>
+    </form>
+
+    {% if result %}
+        <h3>Recommended Projects:</h3>
+        <ul>
+            {% for item in result %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</div>
+
+</body>
+</html>
